@@ -1,0 +1,23 @@
+version: '3'
+services:
+  database: 
+    image: 'mysql:5.7'
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=Doctor
+    ports:
+      - "3307:3306"
+  springboot: 
+    image: springboot
+    ports:
+      - "8061:8061"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/Doctor?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "root"
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - database
