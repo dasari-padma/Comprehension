@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'comprehension-demo'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E94C5B382C54DF88FAF35EE0386C31E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_58AD3776405E41E09230185018995661 }}
           package: '*.jar'
